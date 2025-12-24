@@ -1,0 +1,32 @@
+---
+---
+
+/* 
+   The dashes above are crucial! 
+   They tell Jekyll to process this file as SCSS.
+*/
+
+/* Import the theme's defaults first (if you are using the Gem version) */
+@import "jekyll-theme-chirpy";
+
+/* ==================================================
+   CUSTOM DARK MODE OVERRIDES
+   ================================================== */
+
+html[data-mode="dark"] {
+  /* 1. Make the standard text brighter (almost pure white) */
+  --text-color: #f0f0f0; 
+  
+  /* 2. Make the background slightly darker for better contrast */
+  --body-bg: #121212;
+  
+  /* 3. Make headings pure white */
+  --heading-color: #ffffff;
+
+  /* 4. SPECIFIC FIX FOR LATEX (MATHJAX) */
+  /* This forces math formulas to be pure white */
+  .MathJax, .mjx-chtml, .MathJax_Display {
+    color: #ffffff !important;
+    font-weight: 500; /* Make it slightly thicker */
+  }
+}
