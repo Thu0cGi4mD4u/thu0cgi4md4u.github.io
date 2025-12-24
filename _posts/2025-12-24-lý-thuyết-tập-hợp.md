@@ -8,4 +8,4 @@ math: true
 mermaid: true
 ---
 
-$$\frac{x^2+1}_{t^3-5}$$
+$$\frac{x^2+1}{t^3-5}$$
