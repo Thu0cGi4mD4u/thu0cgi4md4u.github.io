@@ -1,26 +1,42 @@
 #!/bin/bash
 
-# 1. Get the title
-# If you provided arguments (e.g. post My Title), use them.
-# If not, ask for input.
-if [ -n "$1" ]; then
-    title="$*"
+# --- SMART PATH DETECTION ---
+# If we are in the root (and see a _posts folder), go inside it.
+# If we are already inside _posts, just stay here.
+if [ -d "_posts" ]; then
+    base_dir="_posts"
 else
-    echo "Enter post title: "
-    read title
+    base_dir="."
+fi
+# -----------------------------
+
+# 1. Get input
+if [ -n "$1" ]; then
+    input="$*"
+else
+    echo "Enter title (e.g. 'My Post' or 'math/My Post'): "
+    read input
 fi
 
-# 2. Get current date and time
+# 2. Handle Subfolders
+if [[ "$input" == *"/"* ]]; then
+    subfolder="${input%%/*}"
+    raw_title="${input#*/}"
+    target_dir="${base_dir}/${subfolder}" # Use base_dir variable
+    mkdir -p "$target_dir"
+else
+    raw_title="$input"
+    target_dir="${base_dir}"              # Use base_dir variable
+fi
+
+# 3. Clean title and create filename
+title=$(echo "$raw_title" | sed 's/^[ \t]*//;s/[ \t]*$//')
 date_str=$(date +%Y-%m-%d)
 time_str=$(date "+%Y-%m-%d %H:%M:%S %z")
-
-# 3. Convert title to slug (lowercase, special chars to hyphens)
 slug=$(echo "$title" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z | sed 's/^-//;s/-$//')
+filename="${target_dir}/${date_str}-${slug}.md"
 
-# 4. Create filename
-filename="_posts/${date_str}-${slug}.md"
-
-# 5. Create file with content
+# 4. Create File
 cat <<EOF > "$filename"
 ---
 title: $title
@@ -37,7 +53,5 @@ mermaid: true
 Write your content here...
 EOF
 
-echo "Created $filename"
-
-# 6. Open in VS Code
+echo "Created: $filename"
 code "$filename"
