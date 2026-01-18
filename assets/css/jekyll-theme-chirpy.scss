@@ -1,18 +1,21 @@
 ---
 ---
 
-/* 1. Định nghĩa font chữ TRƯỚC khi import theme */
-$font-family-base: 'JetBrains Mono', monospace;
-$font-family-heading: 'JetBrains Mono', monospace;
+/* 1. Import the default theme first.
+   This brings back your sidebar, colors, and layout. */
+@import "main";
 
-/* 2. Import font từ Google */
-@import url('https://fonts.googleapis.com');
-
-/* 3. Import theme gốc */
-@import "jekyll-theme-chirpy";
-
-/* 4. Ghi đè biến CSS (để đảm bảo chắc chắn) */
+/* 2. Override the font variables.
+   We do NOT use @import url here because it breaks the build order. 
+   We load the font in _config.yml instead. */
 :root {
-  --font-family-base: 'JetBrains Mono', monospace;
-  --font-family-heading: 'JetBrains Mono', monospace;
+  --font-family-sans: 'JetBrains Mono', monospace;
+  --font-family-monospace: 'JetBrains Mono', monospace;
+}
+
+/* 3. Dark mode overrides (optional, keep if you want them) */
+html[data-mode="dark"] {
+  .MathJax, .mjx-chtml, .MathJax_Display {
+    color: #ffffff !important;
+  }
 }
