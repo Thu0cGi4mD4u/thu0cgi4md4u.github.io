@@ -1,32 +1,32 @@
 ---
 ---
 
-/* 1. CRITICAL: Theme import must be the FIRST line. */
-/* This restores your Sidebars, Header, and Layout. */
+/* 1. Define SASS Variables BEFORE importing the theme.
+   This tells Chirpy to build the grid and UI using your font natively. */
+$font-family-sans: 'JetBrains Mono', monospace;
+$font-family-monospace: 'JetBrains Mono', monospace;
+$heading-font-family: 'JetBrains Mono', monospace;
+
+/* 2. Import the Theme */
 @import "main";
 
-/* 2. Font Overrides (Applied AFTER the layout loads) */
+/* 3. Adjustments to prevent Layout Breakage
+   Since Monospace fonts are wider than normal text, we must 
+   reduce the size slightly (e.g. 0.95rem) or the Right Sidebar will drop. */
 :root {
   --font-family-sans: 'JetBrains Mono', monospace;
   --font-family-monospace: 'JetBrains Mono', monospace;
-  --heading-font-family: 'JetBrains Mono', monospace;
+  /* Slightly smaller base size to keep the layout intact */
+  --type-size-base: 0.95rem; 
 }
 
-/* 3. Force font application */
-body, 
-h1, h2, h3, h4, h5, h6,
-.post-desc, 
-#toc-bar .label,
-.site-title {
-  font-family: 'JetBrains Mono', monospace !important;
-}
-
-/* 4. Your Dark Mode Settings */
+/* 4. Your Custom Dark Mode Settings */
 html[data-mode="dark"] {
   --text-color: #f0f0f0; 
   --body-bg: #121212;
   --heading-color: #ffffff;
-
+  --sidebar-bg: #121212; /* Ensure sidebar matches */
+  
   .MathJax, .mjx-chtml, .MathJax_Display {
     color: #ffffff !important;
     font-weight: 500;
