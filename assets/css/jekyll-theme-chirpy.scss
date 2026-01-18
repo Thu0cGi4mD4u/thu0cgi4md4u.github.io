@@ -1,23 +1,17 @@
 ---
 ---
 
-/* 1. Load JetBrains Mono FIRST (Must be before any other CSS/Import) */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
-
-/* 2. Import the default theme */
+/* 1. Import the default theme (MUST BE FIRST) */
 @import "main";
 
-/* 3. Apply the Font & Customizations */
+/* 2. Apply the Font override AFTER the theme loads */
 :root {
-  /* Override the main font variable. 
-     We put this AFTER @import "main" so it overwrites the theme's default. */
+  /* This tells the browser to USE the font */
   --font-family-sans: 'JetBrains Mono', monospace;
-  
-  /* Optional: Change code blocks to use it too */
   --font-family-monospace: 'JetBrains Mono', monospace;
 }
 
-/* 4. Custom Dark Mode Settings */
+/* 3. Keep your custom Dark Mode settings */
 html[data-mode="dark"] {
   --text-color: #f0f0f0; 
   --body-bg: #121212;

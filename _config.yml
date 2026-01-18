@@ -11,6 +11,8 @@ lang: vi
 # Change to your timezone › https://zones.arilyn.cc
 timezone:
 
+google_fonts: "family=JetBrains+Mono:wght@400;500;700&display=swap"
+
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
