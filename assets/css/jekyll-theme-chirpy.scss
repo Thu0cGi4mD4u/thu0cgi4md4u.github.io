@@ -1,0 +1,29 @@
+---
+---
+
+/* 1. Import the default theme */
+@import "main";
+
+/* 2. FORCE Override All Font Variables */
+:root {
+  /* --- Bootstrap Overrides (This fixes the Body text) --- */
+  --bs-font-sans-serif: 'JetBrains Mono', system-ui, -apple-system, sans-serif !important;
+  --bs-body-font-family: 'JetBrains Mono', system-ui, -apple-system, sans-serif !important;
+  
+  /* --- Bootstrap Overrides (This fixes Code blocks) --- */
+  --bs-font-monospace: 'JetBrains Mono', monospace !important;
+
+  /* --- Chirpy Theme Overrides (This fixes Sidebar/Headings) --- */
+  --font-family-sans: 'JetBrains Mono', system-ui, -apple-system, sans-serif !important;
+  --font-family-monospace: 'JetBrains Mono', monospace !important;
+  
+  /* --- Heading Override --- */
+  --heading-font-family: 'JetBrains Mono', sans-serif !important;
+}
+
+/* 3. Dark Mode Specifics (Optional) */
+html[data-mode="dark"] {
+  .MathJax, .mjx-chtml, .MathJax_Display {
+    color: #ffffff !important;
+  }
+}
