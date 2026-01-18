@@ -1,11 +1,51 @@
 ---
 ---
 
+/* 1. Import the Font directly here to ensure it loads */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* 2. Import the Chirpy Theme (This loads the core styles) */
 @import "main";
 
-/* 2. Override the font variables to use JetBrains Mono */
+/* 3. Global Font Override */
 :root {
+  /* Update CSS variables used by the theme */
   --font-family-sans: 'JetBrains Mono', monospace;
   --font-family-monospace: 'JetBrains Mono', monospace;
   --heading-font-family: 'JetBrains Mono', monospace;
+}
+
+/* 4. Force Element Overrides 
+   (These represent the "SASS" logic converted to CSS overrides 
+    to beat the theme's default Lato/Source Sans Pro settings) */
+
+body {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Override all headings which usually use 'Lato' */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Override specific Chirpy components that might be stubborn */
+.post-desc, 
+#toc-bar .label,
+.site-title,
+.site-subtitle,
+.card-title {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* 5. Custom Dark Mode Colors (From your previous request) */
+html[data-mode="dark"] {
+  --text-color: #f0f0f0; 
+  --body-bg: #121212;
+  --heading-color: #ffffff;
+
+  .MathJax, .mjx-chtml, .MathJax_Display {
+    color: #ffffff !important;
+    font-weight: 500;
+  }
 }
