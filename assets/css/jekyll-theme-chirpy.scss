@@ -1,24 +1,21 @@
 ---
 ---
 
-/* 1. Import the default theme (MUST BE FIRST) */
+/* 1. Import the default theme first.
+   This brings back your sidebar, colors, and layout. */
 @import "main";
 
-/* 2. Apply the Font override AFTER the theme loads */
+/* 2. Override the font variables.
+   We do NOT use @import url here because it breaks the build order. 
+   We load the font in _config.yml instead. */
 :root {
-  /* This tells the browser to USE the font */
   --font-family-sans: 'JetBrains Mono', monospace;
   --font-family-monospace: 'JetBrains Mono', monospace;
 }
 
-/* 3. Keep your custom Dark Mode settings */
+/* 3. Dark mode overrides (optional, keep if you want them) */
 html[data-mode="dark"] {
-  --text-color: #f0f0f0; 
-  --body-bg: #121212;
-  --heading-color: #ffffff;
-
   .MathJax, .mjx-chtml, .MathJax_Display {
     color: #ffffff !important;
-    font-weight: 500;
   }
 }
