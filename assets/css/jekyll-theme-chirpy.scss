@@ -1,0 +1,25 @@
+---
+---
+
+/* 1. Import the default theme logic */
+@import "main";
+
+/* 2. Apply JetBrains Mono ONLY to the Post Content */
+/* We do NOT apply it to :root or body, so the Sidebars stay correct */
+.content {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.95rem; /* Make it slightly smaller to fit the layout */
+  line-height: 1.6;
+}
+
+/* 3. Apply to Headings inside the post */
+.content h1, .content h2, .content h3, .content h4, .content h5 {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 600;
+}
+
+/* 4. Apply to Code Blocks */
+code, pre, .highlight {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.9rem;
+}
