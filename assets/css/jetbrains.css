@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap');
+
+/* Apply JetBrains Mono site-wide */
+html, body, h1, h2, h3, h4, h5, h6, p, li, a, span, div, input, textarea, button {
+  font-family: "JetBrains Mono", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Ensure code blocks use the mono font */
+code, kbd, pre, tt {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+}
+
+/* Optional: tweak rendering for better legibility */
+body {
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
